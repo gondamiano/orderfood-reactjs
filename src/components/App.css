@@ -1,0 +1,92 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  color: white;
+}
+
+.col-md-4 .col-md-offset-4 {
+    top: 200px;
+    opacity: 0.9;
+    position: absolute;
+    z-index: 1000;
+}
+
+.imgBackground {
+    opacity: 0; transition: opacity 0.3s;
+}
+
+.imgBackground-loaded {
+    opacity: 1;
+}
+
+img {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      /* Preserve aspet ratio */
+      min-width: 100%;
+      min-height: 100%;
+
+}
+
+.panel-default {
+ opacity: 0.9;
+ margin-top:30px;
+}
+.form-group.last {
+ margin-bottom:0px;
+}
+
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* CSS used here will be applied after bootstrap.css */
+.logform {
+    background-color: white;
+    left: 33%;
+    top: 150px;
+    opacity: 0.9;
+    color: black;
+    position: absolute !important;
+    z-index: 1000 !important;
+    border-radius: 20px;
+}
+
+.form-horizontal {
+    text-align: initial !important;
+}
+
+
+div.panel-footer {
+    margin-bottom: 20px;
+}
