@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 const LoginForm = (props) => (
 		<div className="row">
@@ -45,7 +45,7 @@ const LoginForm = (props) => (
 					</div>
 					<div className="panel-footer">
 						Not Registered?
-						<div onClick={props.handleRegistrationForm}> register here</div>
+						<div onClick={props.showRegistrationForm}> register here</div>
 					</div>
 				</div>
 			</div>

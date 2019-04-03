@@ -20,7 +20,7 @@ class Login extends Component {
 	};
 
 	handleForm = () => {
-		alert(this.state.email);
+		console.log(this.state);
 	}
 
 	handleEmail = (event) => {
@@ -35,7 +35,11 @@ class Login extends Component {
 		})
 	}
 
-	handleRegistrationForm = () => {
+	handleRegisterForm = (obj) => {
+		console.log(obj);
+	}
+
+	showRegistrationForm = () => {
 		this.setState({
 			login: !this.state.login
 		})
@@ -44,8 +48,9 @@ class Login extends Component {
 	render() {
 		const props = { ...this.state.user };
 		console.log(props);
-		props.handleRegistrationForm = this.handleRegistrationForm;
+		props.showRegistrationForm = this.showRegistrationForm;
 		props.handleForm = this.handleForm;
+		props.handleRegisterForm = this.handleRegisterForm;
 		if(this.state.login) {
 			return (
 				<div className="container">

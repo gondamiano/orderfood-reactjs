@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Image} from 'react-bootstrap';
-
+import LazyLoad from 'react-lazy-load';
 
 class BackgroundImage extends Component {
 	constructor(props) {
@@ -29,7 +29,15 @@ class BackgroundImage extends Component {
 		if(this.state.filepath) {
 		const images = this.state.filepath;
 		return (
-			<Image className="imgBackground imgBackground-loaded" src="images/img1.jpg"/>
+			<LazyLoad
+				width={100}
+				height={100}
+				debounce={false}
+				offsetVertical={500}
+			>
+
+				<img className="imgBackground imgBackground-loaded" src="images/img1.jpg"/>
+			</LazyLoad>
 		)
 		}
 		else {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import DatePicker from 'react-datepicker';
 import PropTypes from 'prop-types';
 import "react-datepicker/dist/react-datepicker.css";
 import { Modal, Button, Carousel } from 'react-bootstrap';
@@ -42,7 +41,7 @@ class StoreCarousel extends Component {
 		            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 		          </Carousel.Caption>
 		        </Carousel.Item>
-		        
+
 		      </Carousel>
 		)
 	}
