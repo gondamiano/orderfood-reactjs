@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 class Register extends Component {
 	constructor(props, context) {
 		super(props);
 		this.state = {
-			props: props,
-			firstname : "",
-			lastname: "",
-			email: "",
-			password: "",
 
 		}
 	}
@@ -18,17 +14,6 @@ class Register extends Component {
 		this.props.handleRegisterForm(this.state);
 		event.preventDefault();
 	}
-
-
-		handleChange = (event) => {
-			const name = event.target.name;
-			const value = event.target.value;
-			console.log(name, value);
-
-			this.setState({
-				[name]: value				
-			});
-		}
 
 
 render() {
@@ -46,28 +31,28 @@ render() {
 								<label htmlFor="username" className="col-sm-3 control-label" >
 									first name</label>
 								<div className="col-sm-9">
-									<input type="text" className="form-control" id="inputEmail3" placeholder="first name" required value={this.state.firstname || ""} name="firstname" onChange={this.handleChange} />
+									<input type="text" className="form-control" id="inputEmail3" max-length="30" placeholder="first name" required value={this.props.firstname || ""} name="firstname" onChange={this.props.handleChange} />
 								</div>
 							</div>
 							<div className="form-group">
 								<label htmlFor="lastname" className="col-sm-3 control-label" >
 									Last name</label>
 								<div className="col-sm-9">
-									<input type="text" className="form-control" id="inputEmail3" placeholder="Last name" required value={this.state.lastname || ""} name="lastname"  onChange={this.handleChange} />
+									<input type="text" className="form-control" id="inputEmail3" placeholder="Last name" required value={this.props.lastname || ""} name="lastname"  onChange={this.props.handleChange} />
 								</div>
 							</div>
 							<div className="form-group">
 								<label htmlFor="inputEmail3" className="col-sm-3 control-label" >
 									Email</label>
 								<div className="col-sm-9">
-									<input type="email" className="form-control" id="inputEmail3" placeholder="Email" required value={this.state.email || ''} name="email"  onChange={this.handleChange}  />
+									<input type="email" className="form-control" id="inputEmail3" placeholder="Email" required value={this.props.email || ''} name="email"  onChange={this.props.handleChange}  />
 								</div>
 							</div>
 							<div className="form-group">
 								<label htmlFor="inputPassword3" className="col-sm-3 control-label">
 									Password</label>
 								<div className="col-sm-9">
-									<input type="password" className="form-control" id="inputPassword3" placeholder="Password" required value={this.state.password || ""} name="password" onChange={this.handleChange}/>
+									<input type="password" className="form-control" id="inputPassword3" placeholder="Password" required value={this.props.password || ""} name="password" onChange={this.props.handleChange}/>
 								</div>
 							</div>
 							<div className="form-group">

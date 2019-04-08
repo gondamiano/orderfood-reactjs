@@ -4,39 +4,35 @@ import Register from './register.js';
 import PropTypes from 'prop-types';
 import BackgroundImage from './backgroundImage.js';
 import LoginForm from './loginForm.js';
+import axios from 'axios';
 
 class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			user : {
-				firstname : PropTypes.STRING,
-				lastname: PropTypes.STRING,
-				email: PropTypes.STRING,
-				password: PropTypes.STRING,
-			},
+			firstname : PropTypes.STRING,
+			lastname: PropTypes.STRING,
+			email: PropTypes.STRING,
+			password: PropTypes.STRING,
 			login: true,
 		}
 	};
 
-	handleForm = () => {
-		console.log(this.state);
-	}
-
-	handleEmail = (event) => {
+	handleChange = (event) => {
 		this.setState({
-			email : event.target.value
+			[event.target.name]: event.target.value
 		})
 	}
 
-	handlePassword = (event) => {
-		this.setState({
-			password : event.target.value
+	handleRegisterForm = (event) => {
+		const user = {firstname: this.state.firstname, lastname: this.state.lastname, email: this.state.email, password: this.state.password}
+		axios.post('http://localhost:2000/register', user)
+		.then(response => {
+			this.showRegistrationForm();
 		})
-	}
-
-	handleRegisterForm = (obj) => {
-		console.log(obj);
+		.catch(err => {
+			console.log("fallo: " + err);
+		})
 	}
 
 	showRegistrationForm = () => {
@@ -45,11 +41,21 @@ class Login extends Component {
 		})
 	}
 
+	handleSubmit = (event) => {
+		axios.post('http://localhost:2000/login', {email: this.state.email, password: this.state.password}).then((res) => {
+			console.log(res.status + " acaa");
+		})
+		.catch(err => {
+			console.log(err + "veniamos charlando" );
+		})
+		event.preventDefault();
+	}
+
 	render() {
-		const props = { ...this.state.user };
-		console.log(props);
+		const props = { ...this.state };
 		props.showRegistrationForm = this.showRegistrationForm;
-		props.handleForm = this.handleForm;
+		props.handleSubmit = this.handleSubmit;
+		props.handleChange = this.handleChange;
 		props.handleRegisterForm = this.handleRegisterForm;
 		if(this.state.login) {
 			return (
