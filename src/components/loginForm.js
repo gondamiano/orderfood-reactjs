@@ -8,19 +8,19 @@ const LoginForm = (props) => (
 					  <strong>Login</strong>
 					</div>
 					<div className="panel-body">
-						<form className="form-horizontal">
+						<form className="form-horizontal" onSubmit={props.handleSubmit} >
 						<div className="form-group">
 							<label htmlFor="inputEmail3" className="col-sm-3 control-label" >
 								Email</label>
 							<div className="col-sm-9">
-								<input type="email" className="form-control" id="inputEmail3" placeholder="Email" required value={props.email} onChange={props.handleEmail} />
+								<input type="email" className="form-control" id="inputEmail3" placeholder="Email" name="email" required value={props.email || ""} onChange={props.handleChange} />
 							</div>
 						</div>
 						<div className="form-group">
 							<label htmlFor="inputPassword3" className="col-sm-3 control-label">
 								Password</label>
 							<div className="col-sm-9">
-								<input type="password" className="form-control" id="inputPassword3" placeholder="Password" required value={props.password} onChange={props.handlePassword}/>
+								<input type="password" className="form-control" id="inputPassword3" placeholder="Password" name="password" required value={props.password || ""} onChange={props.handleChange}/>
 							</div>
 						</div>
 						<div className="form-group">
@@ -35,7 +35,7 @@ const LoginForm = (props) => (
 						</div>
 						<div className="form-group last">
 							<div className="col-sm-offset-3 col-sm-9">
-								<button types="button" className="btn btn-success btn-sm" onClick={props.handleForm}>
+								<button types="submit" className="btn btn-success btn-sm">
 									Sign in</button>
 									 <button type="reset" className="btn btn-default btn-sm">
 									Reset</button>
